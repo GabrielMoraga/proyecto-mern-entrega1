@@ -1,12 +1,14 @@
-import ProductosCards from "./components/ProductosCards";
 import Navbar from "./components/Navbar";
+import Formulario from "./components/Formulario";
+import ProductosCards from "./components/ProductosCards";
 
 function App() {
 
   return (
     <div className="container">
         <Navbar/>
-        <ProductosCards/>
+        <Formulario/>
+        <ProductosCards />
     </div>
   );
 }

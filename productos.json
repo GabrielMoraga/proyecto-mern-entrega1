@@ -38,5 +38,25 @@
     "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/board-math-class-school-128.png",
     "precio": 60,
     "stock": 10
+  },
+  {
+    "id": 5,
+    "timestamp": 1658889053982,
+    "nombre": "Lápiz",
+    "descripcion": "Este es un Lápiz",
+    "codigo": "55551",
+    "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/pencil-pen-stationery-school-128.png",
+    "precio": "100",
+    "stock": "50"
+  },
+  {
+    "id": 6,
+    "timestamp": 1658889531407,
+    "nombre": "Globo terráqueo",
+    "descripcion": "Este es un Globo terráqueo",
+    "codigo": "2556",
+    "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-128.png",
+    "precio": "3000",
+    "stock": "15"
   }
 ]
