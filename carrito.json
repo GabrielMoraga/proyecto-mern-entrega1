@@ -41,6 +41,26 @@
         "foto (url)": "",
         "precio": 60,
         "stock": 10
+      },
+      {
+        "id": 2,
+        "timestamp": 1658681359742,
+        "nombre": "Despertador",
+        "descripcion": "Este es un despertador",
+        "código": "01245",
+        "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/clock-stopwatch-timer-time-512.png",
+        "precio": 60,
+        "stock": 10
+      },
+      {
+        "id": 4,
+        "timestamp": 1658681361636,
+        "nombre": "Pizarra",
+        "descripcion": "Esta es una pizarra",
+        "código": "01245",
+        "foto": "https://cdn3.iconfinder.com/data/icons/education-209/64/board-math-class-school-128.png",
+        "precio": 60,
+        "stock": 10
       }
     ]
   },

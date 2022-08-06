@@ -42,7 +42,7 @@ class ManejoArchivos {
         
         try {
             await fs.writeFile(this.ruta, JSON.stringify(objs, null, 2),'utf-8')
-            return newObj
+            return objs
         } catch (error) {
             throw new Error(`Error al guardar: ${error}`)
         }
@@ -75,7 +75,7 @@ class ManejoArchivos {
             objs.splice(index,1)
             try {
                 await fs.writeFile(this.ruta, JSON.stringify(objs, null, 2))
-                return { mensaje: `objeto id: ${id} eliminado` }
+                return objs
             } catch (error) {
                 throw new Error(`Error al borrar: ${error}`)
             }
@@ -98,8 +98,10 @@ class ManejoArchivos {
     // Incorporar productos al carrito por su id de producto
     async addPropductoCarrito(id_carr, obj) {
         const objs = await this.listarAll()
+        console.log(objs)
+        console.log(obj)
         const index = objs.findIndex(o => o.id == id_carr)
-        if (index & obj) {
+        if (index && obj) {
             try {
                 objs[index].productos.push(obj)
                 await fs.writeFile(this.ruta, JSON.stringify(objs, null, 2),'utf-8')
@@ -116,7 +118,7 @@ class ManejoArchivos {
     async deletePropductoCarrito(id_carr, obj) {
         const objs = await this.listarAll()
         const index = objs.findIndex(o => o.id == id_carr) // identifico el index asociado al id del carrito
-        if (index & obj) {
+        if (index && obj) {
             const id_prod = obj.id
             objs[index].productos.splice(id_prod,1) // Elimino id_prod del carrito
             try {

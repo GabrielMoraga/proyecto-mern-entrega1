@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FormProductos() {
+function FormProductos({setProductos, productos}) {
 
 const [values, setValues] = React.useState({
     nombre: 'Mochila',
@@ -30,8 +30,8 @@ const handleSubmit = async (e) => {
 
         let res = await fetch('/api/productos', config) 
         let json = await res.json()
-
-        console.log(json)
+        setProductos(json)
+        console.log(json) 
 
     } catch (error) {
         

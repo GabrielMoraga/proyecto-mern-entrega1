@@ -1,7 +1,8 @@
 const express = require('express');
 const {Router} = require('express');
-const ManejoArchivo = require('../controllers/ManejoArchivo.js');
+const ManejoArchivo = require('./controllers/ManejoArchivo.js');
 const path = require('path');
+const auth = require('./middleware/auth.js')
 
 //--------------------------------------------
 // instancio servidor y api
@@ -48,14 +49,14 @@ routerProductos.post('/', async (req, res) => {
     res.json(resp)
 });
 
-routerProductos.put('/:id', async (req, res) => {
+routerProductos.put('/:id', auth, async (req, res) => {
     const prod = req.body;
     const id = req.params.id;
     const resp = await productosApi.actualizar(prod, id)
     res.json(resp)
 });
 
-routerProductos.delete('/:id', async (req, res) => {
+routerProductos.delete('/:id', auth, async (req, res) => {
     const id = req.params.id;
     const resp = await productosApi.borrar(id)
     res.json(resp)
@@ -94,9 +95,9 @@ routerCarrito.get('/:id/productos', async (req, res) => {
 
 
 // Incorporar productos al carrito por su id de producto
-routerCarrito.post('/:id/productos/:id_prod', async (req, res) => {
+routerCarrito.post('/:id/productos', async (req, res) => {
     const id_carr = req.params.id;
-    const id_prod = req.params.id_prod;
+    const id_prod = req.body;
     const prod = await productosApi.listar(id_prod)
     const resp = await carritoApi.addPropductoCarrito(id_carr, prod)
     res.json(resp)
@@ -116,17 +117,18 @@ routerCarrito.delete('/:id/productos/:id_prod', async (req, res) => {
 
 //--------------------------------------------
 // configuro los endpoint para rutas no válidas donde devuelve la React app
+/*
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
     });
+*/
 
-/*
 app.get('*', (req, res) => {
     res.json(
         { error : -2, descripcion: `ruta 'x' método 'y' no implementada`}
     )
 });
-*/
+
 
 
 //--------------------------------------------
